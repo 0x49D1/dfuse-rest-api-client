@@ -24,3 +24,11 @@ The best way to handle each JWT’s lifecycle is, before doing calls to dfuse:
 Each time you get a fresh JWT, you get the expiration and the token itself.  
 
 Once a connection is established using a JWT, it will not be shutdown, even though the JWT expires during the session.
+
+------
+To test this wrapper just import wrapper part and use it. Object descriptions can be found on https://docs.dfuse.io   
+```python
+import dfuse_api.api
+tr_info = dfuse_api.api.get_transaction("58d3806fc334723e638da2765e07d9f7154df00a75bf51bd6f5aa861c41aa968")
+```
+
