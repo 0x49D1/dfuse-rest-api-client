@@ -1,4 +1,4 @@
-# dfuse_python_rest_api
+# dfuse EOS Python REST API client
 Example of working with REST api of dfuse https://docs.dfuse.io
 
 The dfuse API is available for multiple EOSIO networks. Example:      
