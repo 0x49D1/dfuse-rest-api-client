@@ -44,6 +44,23 @@ def get_account(account_name):
     return response.json()
 
 
+def get_currency_balance(account_name, symbol = "EOS"):  
+    """Gets token balance from standard chain requests!"""
+    response = requests.post(f"{api_url}/v1/chain/get_currency_balance",
+                             json={"code": "eosio.token", "account": account_name, "symbol":symbol}, headers=headers, timeout=10)
+    logger.info(response.json())
+    return response.json()
+
+def get_account_balance(account_name):
+    """ONLY EOS token restriction in this case!"""
+    balance_string = get_currency_balance(account_name)[0].split(' ')
+    symbol = balance_string[1]
+    balance = balance_string[0]
+    if (symbol == "EOS"):
+        return balance
+    else: 
+        return 0
+
 def search_received_transactions(account_name, limit=10):
     # print(headers)
     response = requests.get(f"{api_url}/v0/search/transactions", params={"sort": "desc", "limit": limit,
@@ -69,4 +86,4 @@ def get_transaction(transactionid):
 
 if __name__ == "__main__":
     get_account("mycoinsdepo1")
-    search_sent_transactions("mycoinsdepo1")
+    get_account_balance("mycoinsdepo1")
