@@ -31,4 +31,6 @@ To test this wrapper just import wrapper part and use it. Object descriptions ca
 import dfuse_api.api
 tr_info = dfuse_api.api.get_transaction("58d3806fc334723e638da2765e07d9f7154df00a75bf51bd6f5aa861c41aa968")
 ```
+   
+PS: Redis is used for saving tokens as a cache server. I use it almost everywhere, so added it here too. Probably it's an overkill for such project.
 
